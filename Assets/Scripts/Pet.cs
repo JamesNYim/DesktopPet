@@ -9,7 +9,7 @@ public class Pet : MonoBehaviour
     public float hunger = 100f;
     public float energy = 100f;
     public float happiness = 100f;
-    public float speed = 100f;
+    public float speed = 1f;
 
     [Header("Rates")]
     // Hunger rate
@@ -43,5 +43,15 @@ public class Pet : MonoBehaviour
         {
             chatBubble.Show(msg);
         }
+    }
+
+    public Vector3 GetRandomWalkPoint()
+    {
+        // random area around screen
+        float x = Random.Range(-5f, 5f);
+        float y = Random.Range(-5f, 5f);
+        // Example transitions
+
+        return new Vector3(x, y, 0);
     }
 }

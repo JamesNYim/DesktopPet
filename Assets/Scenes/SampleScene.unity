@@ -218,6 +218,8 @@ GameObject:
   - component: {fileID: 786270580}
   - component: {fileID: 786270579}
   - component: {fileID: 786270578}
+  - component: {fileID: 786270583}
+  - component: {fileID: 786270582}
   - component: {fileID: 786270581}
   m_Layer: 0
   m_Name: Pet
@@ -329,10 +331,49 @@ MonoBehaviour:
   hunger: 100
   energy: 100
   happiness: 100
+  speed: 1
   animator: {fileID: 786270578}
   petTransform: {fileID: 786270580}
   spriteRenderer: {fileID: 786270579}
   chatBubble: {fileID: 1680772099}
+--- !u!114 &786270582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786270577}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb05dd48b3b0f7c49aaf9d87943e3149, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &786270583
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786270577}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 0.32, y: 0.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1054705958
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,13 +384,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1054705960}
   - component: {fileID: 1054705959}
+  - component: {fileID: 1054705961}
   m_Layer: 0
   m_Name: WindowManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1054705959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -377,6 +419,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1054705961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1054705958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bf6545bf1af8f94490d588109c1a8d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1175274826
 GameObject:
   m_ObjectHideFlags: 0
