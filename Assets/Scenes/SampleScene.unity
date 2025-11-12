@@ -219,7 +219,6 @@ GameObject:
   - component: {fileID: 786270579}
   - component: {fileID: 786270578}
   - component: {fileID: 786270583}
-  - component: {fileID: 786270582}
   - component: {fileID: 786270581}
   - component: {fileID: 786270584}
   m_Layer: 0
@@ -337,18 +336,6 @@ MonoBehaviour:
   petTransform: {fileID: 786270580}
   spriteRenderer: {fileID: 786270579}
   chatBubble: {fileID: 1680772099}
---- !u!114 &786270582
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 786270577}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb05dd48b3b0f7c49aaf9d87943e3149, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &786270583
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -384,7 +371,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 786270577}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5f1e1fe84848cc4e9aaeb9dd0f9879a, type: 3}
+  m_Script: {fileID: 11500000, guid: 1794c5cea68949247a3dcd6e033041d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1054705958
@@ -397,7 +384,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1054705960}
   - component: {fileID: 1054705959}
-  - component: {fileID: 1054705961}
   - component: {fileID: 1054705962}
   m_Layer: 0
   m_Name: WindowManager
@@ -433,18 +419,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1054705961
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1054705958}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bf6545bf1af8f94490d588109c1a8d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1054705962
 MonoBehaviour:
   m_ObjectHideFlags: 0
