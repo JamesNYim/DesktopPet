@@ -49,20 +49,11 @@ public class WindowManager : MonoBehaviour
         SetWindowLong(hwnd, GWL_EXSTYLE, exStyle | WS_EX_LAYERED);
 
         // Magenta will be transparent
-        SetLayeredWindowAttributes(hwnd, 0x00FF00FF, 0, LWA_COLORKEY);
+        SetLayeredWindowAttributes(hwnd, 0, 0, LWA_COLORKEY);
 
         // Set window always on top
-        SetWindowPos(hwnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE | SWP_NOACTIVATE);
+        SetWindowPos(hwnd, HWND_TOPMOST, 0, 0, 0, 0, 0);
 
-
-        // Delay click-through until after first frame
-        StartCoroutine(EnableClickThroughNextFrame(hwnd, exStyle));
-    }
-
-    private System.Collections.IEnumerator EnableClickThroughNextFrame(IntPtr hwnd, int originalExStyle)
-    {
-        yield return null; // wait 1 frame
-        SetWindowLong(hwnd, GWL_EXSTYLE, originalExStyle | WS_EX_LAYERED | WS_EX_TRANSPARENT);
     }
 #endif
 }
