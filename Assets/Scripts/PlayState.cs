@@ -22,7 +22,7 @@ public class PlayState : IPetState
     public void Update()
     {
         timer += Time.deltaTime;
-        pet.happiness += Time.deltaTime * 10f;
+        pet.stats.Play(Time.deltaTime);
 
         if (timer > 5f)
             fsm.RequestState(PetStateMachine.PetState.Idle);

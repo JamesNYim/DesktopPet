@@ -22,19 +22,19 @@ public class IdleState : IPetState
     public void Update()
     {
         timer += Time.deltaTime;
-        pet.happiness -= Time.deltaTime;
+        pet.stats.Idle(Time.deltaTime);
 
         // Sleeping
-        if (pet.energy < 20)
+        if (pet.stats.energy < 20)
             fsm.RequestState(PetStateMachine.PetState.Sleep);
         
         // Playing
-        else if (pet.happiness < 20) {
+        else if (pet.stats.happiness < 20) {
             fsm.RequestState(PetStateMachine.PetState.Play);
         }
         
         // Walking
-        else if (timer > Random.Range(1f, 2f)) {
+        else if (timer > Random.Range(1f, 5f)) {
             fsm.RequestState(PetStateMachine.PetState.Walk);
         }
     }

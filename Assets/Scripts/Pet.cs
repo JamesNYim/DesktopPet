@@ -6,9 +6,6 @@ using UnityEngine;
 public class Pet : MonoBehaviour
 {
     [Header("Stats")]
-    public float hunger = 100f;
-    public float energy = 100f;
-    public float happiness = 100f;
     public float speed = 1f;
 
     [Header("Rates")]
@@ -26,6 +23,8 @@ public class Pet : MonoBehaviour
 
 
     public PetStateMachine fsm;
+    public PetStats stats;
+    private float tickerTimer;
 
     void Awake()
     {
@@ -36,8 +35,12 @@ public class Pet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        fsm.Update();
-
+        tickerTimer += Time.deltaTime;
+        if (tickerTimer >= 1f)
+        {
+            Tick();
+            tickerTimer = 0f;
+        }
     }
 
     public void speak(string msg)
@@ -70,6 +73,12 @@ public class Pet : MonoBehaviour
             this.speak("Requesting State to: " + newState);
             fsm.RequestState(newState);
         }
+    }
+
+    private void Tick()
+    {
+        stats.Tick();
+        fsm.Update();
     }
 
 }

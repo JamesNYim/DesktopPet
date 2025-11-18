@@ -25,11 +25,11 @@ public class WalkState : IPetState
     public void Update()
     {
         timer += Time.deltaTime;
+        pet.stats.Walk(Time.deltaTime);
 
         // Move toward target
         Vector3 dir = (targetPos - pet.petTransform.position).normalized;
         pet.petTransform.position += dir * pet.speed * Time.deltaTime;
-        pet.energy -= Time.deltaTime * 5f;
 
         // Flip sprite
         pet.spriteRenderer.flipX = dir.x < 0;
@@ -40,12 +40,9 @@ public class WalkState : IPetState
         }
 
         // Sleeping if tired
-        if (pet.energy < 20) {
+        if (pet.stats.energy < 20) {
             fsm.RequestState(PetStateMachine.PetState.Sleep);
         }
-
-        // Happiness go down
-        pet.happiness -= Time.deltaTime;
     }
 
     public void Exit() { }

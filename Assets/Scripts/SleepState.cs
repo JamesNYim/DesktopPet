@@ -19,8 +19,8 @@ public class SleepState : IPetState
 
     public void Update()
     {
-        pet.energy += Time.deltaTime * 10f;
-        if (pet.energy >= 90f)
+        pet.stats.Sleep(Time.deltaTime);
+        if (pet.stats.energy >= 90f)
         {
             fsm.RequestState(PetStateMachine.PetState.Idle);
         }

@@ -47,10 +47,10 @@ public class PetStateMachine
         switch (newState)
         {
             case PetState.Sleep:
-                return pet.energy < 20;
+                return pet.stats.energy < 20;
 
             case PetState.Play:
-                return pet.happiness < 80;
+                return pet.stats.happiness < 80;
         
             case PetState.Menu:
                 return true;

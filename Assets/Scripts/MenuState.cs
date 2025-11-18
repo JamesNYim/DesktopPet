@@ -6,6 +6,7 @@ public class MenuState : IPetState
     private Pet pet;
     private PetStateMachine fsm;
     private GameObject activeMenu;
+    private MenuUI menuUI;
 
     public MenuState(Pet pet, PetStateMachine fsm)
     {
@@ -20,6 +21,8 @@ public class MenuState : IPetState
         pet.animate("Play");
         // Spawn menu 
         activeMenu = GameObject.Instantiate(pet.menuPrefab, pet.menuCanvas.transform);
+        menuUI = activeMenu.GetComponent<MenuUI>();
+
         RectTransform rt = activeMenu.GetComponent<RectTransform>();
         rt.pivot = new Vector2(0.5f, 1f);
 
@@ -41,6 +44,8 @@ public class MenuState : IPetState
     public void Update()
     {
         // Optional: hover effects, animations
+        pet.stats.Idle(Time.deltaTime);
+        menuUI.UpdateStats(pet.stats);
     }
 
     public void Exit()
