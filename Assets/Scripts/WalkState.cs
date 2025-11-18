@@ -15,8 +15,8 @@ public class WalkState : IPetState
 
     public void Enter()
     {
-        pet.speak("Walking...");
-        pet.animator.Play("Walk");
+        pet.speak("Walking");
+        pet.animate("Walk");
         timer = 0f;
         // Pick a random destination within bounds
         targetPos = pet.GetRandomWalkPoint();
@@ -36,12 +36,12 @@ public class WalkState : IPetState
 
         // Check if reached destination
         if (Vector3.Distance(pet.petTransform.position, targetPos) < 0.1f) {
-            fsm.ChangeState(PetStateMachine.PetState.Idle);
+            fsm.RequestState(PetStateMachine.PetState.Idle);
         }
 
         // Sleeping if tired
         if (pet.energy < 20) {
-            fsm.ChangeState(PetStateMachine.PetState.Sleep);
+            fsm.RequestState(PetStateMachine.PetState.Sleep);
         }
 
         // Happiness go down

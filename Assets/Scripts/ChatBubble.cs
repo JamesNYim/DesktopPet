@@ -9,7 +9,7 @@ public class ChatBubble : MonoBehaviour
     public CanvasGroup canvasGroup;
 
     public float fadeDuration = 0.5f;
-    public float visibleTime = 3f;
+    public float visibleTime = 0.5f;
 
     private float timer;
     

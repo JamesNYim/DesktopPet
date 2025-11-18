@@ -1,5 +1,7 @@
-
 using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
+using static PetStateMachine;
 
 public class PetInteractionHandler: MouseInteractable
 {
@@ -15,6 +17,13 @@ public class PetInteractionHandler: MouseInteractable
     {
         pet.speak("Clicked");
     }
+
+    protected override void OnRightClick()
+    {
+        //pet.speak("Right Clicked");
+        pet.RequestState(PetStateMachine.PetState.Menu);
+    } 
+    
 
     protected override void OnMouseEnterObject()
     {

@@ -13,8 +13,8 @@ public class SleepState : IPetState
 
     public void Enter()
     {
-        pet.speak("Sleeping...");
-        pet.animator.Play("Sleep");
+        pet.speak("Sleeping");
+        pet.animate("Sleep");
     }
 
     public void Update()
@@ -22,7 +22,7 @@ public class SleepState : IPetState
         pet.energy += Time.deltaTime * 10f;
         if (pet.energy >= 90f)
         {
-            fsm.ChangeState(PetStateMachine.PetState.Idle);
+            fsm.RequestState(PetStateMachine.PetState.Idle);
         }
     }
 

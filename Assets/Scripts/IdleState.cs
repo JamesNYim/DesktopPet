@@ -14,8 +14,8 @@ public class IdleState : IPetState
 
     public void Enter()
     {
-        pet.speak("Idling...");
-        pet.animator.Play("Idle");
+        pet.speak("Idling");
+        pet.animate("Idle");
         timer = 0f;
     }
 
@@ -26,16 +26,16 @@ public class IdleState : IPetState
 
         // Sleeping
         if (pet.energy < 20)
-            fsm.ChangeState(PetStateMachine.PetState.Sleep);
+            fsm.RequestState(PetStateMachine.PetState.Sleep);
         
         // Playing
         else if (pet.happiness < 20) {
-            fsm.ChangeState(PetStateMachine.PetState.Play);
+            fsm.RequestState(PetStateMachine.PetState.Play);
         }
         
         // Walking
-        else if (timer > Random.Range(5f, 10f)) {
-            fsm.ChangeState(PetStateMachine.PetState.Walk);
+        else if (timer > Random.Range(1f, 2f)) {
+            fsm.RequestState(PetStateMachine.PetState.Walk);
         }
     }
 

@@ -48,6 +48,8 @@ public class MouseInteractable : MonoBehaviour
 
     private void HandleClick()
     {
+
+        // Left click drag
         if (mouseOver && Input.GetMouseButtonDown(0))
         {
             dragZ = mainCam.WorldToScreenPoint(transform.position).z;
@@ -58,6 +60,12 @@ public class MouseInteractable : MonoBehaviour
             OnMouseClick();
         }
 
+        // Right Click 
+        if (mouseOver && Input.GetMouseButtonDown(1)) {
+            OnRightClick();
+        }
+
+        // Left mouse release
         if (isDragging && Input.GetMouseButtonUp(0))
         {
             isDragging = false;
@@ -84,4 +92,5 @@ public class MouseInteractable : MonoBehaviour
     protected virtual void OnMouseClick() { }
     protected virtual void OnMouseDrag() { }
     protected virtual void OnMouseRelease() { }
+    protected virtual void OnRightClick() { }
 }

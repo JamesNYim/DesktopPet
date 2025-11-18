@@ -14,8 +14,8 @@ public class PlayState : IPetState
 
     public void Enter()
     {
-        pet.speak("Playing!");
-        pet.animator.Play("Play");
+        pet.speak("Playing");
+        pet.animate("Play");
         timer = 0f;
     }
 
@@ -25,7 +25,7 @@ public class PlayState : IPetState
         pet.happiness += Time.deltaTime * 10f;
 
         if (timer > 5f)
-            fsm.ChangeState(PetStateMachine.PetState.Idle);
+            fsm.RequestState(PetStateMachine.PetState.Idle);
     }
 
     public void Exit() { }

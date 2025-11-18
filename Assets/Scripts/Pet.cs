@@ -21,8 +21,11 @@ public class Pet : MonoBehaviour
     public Transform petTransform;
     public SpriteRenderer spriteRenderer;
     public ChatBubble chatBubble;
+    public GameObject menuPrefab;
+    public Canvas menuCanvas;
 
-    private PetStateMachine fsm;
+
+    public PetStateMachine fsm;
 
     void Awake()
     {
@@ -45,6 +48,11 @@ public class Pet : MonoBehaviour
         }
     }
 
+    public void animate(string animationName)
+    {
+        this.animator.Play(animationName);
+    }
+
     public Vector3 GetRandomWalkPoint()
     {
         // random area around screen
@@ -54,4 +62,14 @@ public class Pet : MonoBehaviour
 
         return new Vector3(x, y, 0);
     }
+
+    public void RequestState(PetStateMachine.PetState newState)
+    {
+        if (fsm != null)
+        {
+            this.speak("Requesting State to: " + newState);
+            fsm.RequestState(newState);
+        }
+    }
+
 }
